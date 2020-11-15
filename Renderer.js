@@ -6,9 +6,12 @@ class Renderer {
         this.meat_source = $('#meat-template').html();
         this.friends_source = $('#friends-template').html();
 
-        Handlebars.registerHelper('proper', function (String) {
-            return `${String[0].toUpperCase()}${String.slice(1)}`
-        });
+        this.saved_user_source = $('#saved-user-template').html();
+
+        //configure the drop down hover functionality
+        $('.drop-down').hover(() => $('#saved-users').css("display", "grid"), () => $('#saved-users').css("display", "none"))
+
+        Handlebars.registerHelper('proper', (String) => `${String[0].toUpperCase()}${String.slice(1)}`)
     }
 
     handlBarHelper(source, elementToAppendTo, data) {
@@ -17,6 +20,8 @@ class Renderer {
         let newHTML = template(data);
         $(elementToAppendTo).append(newHTML);
     }
+
+    renderLocalySavedUsers = (savedUsers) => this.handlBarHelper(this.saved_user_source, '#saved-users', savedUsers)
 
     renderUser = (data) => this.handlBarHelper(this.user_source, '.user-container', data)
     renderKanyeQuote = (quote) => this.handlBarHelper(this.kanye_source, '.quote-container', quote)
@@ -31,5 +36,4 @@ class Renderer {
         renderer.renderAbout(data.about)
         renderer.renderFriends(data.friends)
     }
-
 }

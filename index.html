@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 
@@ -33,7 +35,10 @@
         </div>
         <div class="extension-buttons">
             <button>Save user data</button>
-            <button>Load saved User Data</button>
+            <div class="drop-down">
+                <div id="load-saved"><div id="load-text">Load saved User Data</div><i class="fa fa-caret-down"></i></div>
+                <div id="saved-users"></div>
+            </div>
         </div>
     </div>
 
@@ -78,6 +83,13 @@
         </div>
     </script>
 
+    <script id="saved-user-template" type="text/x-handlebars-template">
+        {{#each data}}
+        <div class="saved-items" data-id="{{id}}">{{#each user.user.results}}{{name.first}} {{name.last}}{{/each}}</div>
+        {{/each}}
+    </script>
+
+    <script src="LSHandler.js"></script>
     <script src="APIManager.js"></script>
     <script src="Renderer.js"></script>
     <script src="main.js"></script>
