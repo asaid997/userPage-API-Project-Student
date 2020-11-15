@@ -126,3 +126,17 @@ button {
     padding: 1vw;
     font-size: 1vmax;
 }
+
+.meat-container{
+    margin-left: 2vh;
+    margin-top: 2vh;
+}
+
+.text{
+    align-self: center;
+    justify-self: start;
+}
+.profile-img{
+    border-radius: 50%;
+    border: black solid 2px;
+}
