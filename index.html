@@ -31,6 +31,10 @@
             <button>Load User Data</button>
             <button>Display User</button>
         </div>
+        <div class="extension-buttons">
+            <button>Save user data</button>
+            <button>Load saved User Data</button>
+        </div>
     </div>
 
 
@@ -57,7 +61,7 @@
     <script id="pokemon-template" type="text/x-handlebars-template">
         <div style="display: grid; grid-template-columns: 0fr 1fr; margin-left: 3vh; margin-bottom: 3vh;">
             <img src="{{sprites.front_shiny}}">
-            <span style="width: max-content; align-content: center; display: grid;"> Favorite Pokemon: {{name}}</span>
+            <span style="width: max-content; align-content: center; display: grid;"> Favorite Pokemon: {{proper name}}</span>
         </div>
     </script>
 

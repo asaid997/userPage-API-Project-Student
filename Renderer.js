@@ -6,6 +6,9 @@ class Renderer {
         this.meat_source = $('#meat-template').html();
         this.friends_source = $('#friends-template').html();
 
+        Handlebars.registerHelper('proper', function (String) {
+            return `${String[0].toUpperCase()}${String.slice(1)}`
+        });
     }
 
     handlBarHelper(source, elementToAppendTo, data) {
@@ -20,7 +23,6 @@ class Renderer {
     renderPokemon = (pokemon) => this.handlBarHelper(this.pokemon_source, '.pokemon-container', pokemon)
     renderAbout = (about) => this.handlBarHelper(this.meat_source, '.meat-container', about)
     renderFriends = (friends) => this.handlBarHelper(this.friends_source, '.friends-container', friends)
-
 
     renderAll(data) {
         renderer.renderUser(data.user)
